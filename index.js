@@ -1,27 +1,55 @@
-let curentuser = JSON.parse(localStorage.getItem("curentuser"));
+debugger;
+var curentuser = JSON.parse(localStorage.getItem("curentuser"));
 
 
-if (curentuser) {
-    document.getElementById("name").innerHTML = curentuser.nams;
-    document.getElementById("email").innerHTML = curentuser.email;
-    document.getElementById("password").innerHTML = curentuser.password;
-    document.getElementById("gender").innerHTML = curentuser.gender;
+
+
+function check() {
+    function Getallinfo() {
+        // this.name = function() {
+        //     curentuser.name;
+        // }
+        // this.email = function() {
+        //     curentuser.email;
+        // }
+        // this.password = function() {
+        //     curentuser.password;
+        // }
+        // this.gender = function() {
+        //     curentuser.gender;
+        // }
+        this.name = function () {
+            document.getElementById("name").innerHTML = curentuser.name;
+        }
+        this.email = function () {
+            document.getElementById("email").innerHTML = curentuser.email;
+        }
+        this.password = function () {
+            document.getElementById("password").innerHTML = curentuser.password;
+        }
+        this.gender = function () {
+            document.getElementById("gender").innerHTML = curentuser.gender;
+        }
+    }
+    var data = new Getallinfo();
+    document.getElementById("name").innerHTML = data.name();
 }
 
 
+var arr = [];
+var isFound = false;
 
-let arr = [];
-let isFound = false;
 function signup() {
-    var user = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("uemail").value,
-        password: document.getElementById("upassword").value,
-        gender: document.getElementById("gender").value,
-        actve: document.getElementById("active").innerHTML
+    // this is constructor
+    function Data() {
+        this.name = document.getElementById("name").value;
+        this.email = document.getElementById("uemail").value;
+        this.password = document.getElementById("upassword").value;
+        this.gender = document.getElementById("gender").value;
+        this.actve = document.getElementById("active").innerHTML;
 
-    };
-
+    }
+    var user = new Data();
     var getData = localStorage.getItem("arr");
     debugger;
     if (getData) {
@@ -40,13 +68,7 @@ function signup() {
 
     }
     else {
-        arr.push({
-            nams: user.name,
-            email: user.email,
-            password: user.password,
-            gender: user.gender
-
-        });
+        arr.push(user);
     }
 
     localStorage.setItem("arr", JSON.stringify(arr));
@@ -59,6 +81,7 @@ function signup() {
 
 
 function login() {
+
     let user = JSON.parse(localStorage.getItem("arr"));
 
     let lemail = document.getElementById("loginemail").value;
