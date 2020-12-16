@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+</head>
+
+<body>
+    <form onsubmit="return signup()">
+        <label>Name :</label>
+        <input type="text" id="name">
+        <br>
+        <label>Email :</label>
+        <input type="email" id="uemail">
+        <br>
+        <label>Password :</label>
+        <input type="password" id="upassword">
+        <br>
+        <label>Gender :</label>
+        <select name="Gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+
+        </select>
+        <br>
+        <label id="active">Active :</label>
+        <label>True</label>
+        <button>Submit</button>
+
+    </form>
+</body>
+<script src="index.js"></script>
+
+</html>
